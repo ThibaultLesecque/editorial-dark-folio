@@ -31,49 +31,49 @@ const skills = [
     name: "Odoo",
     category: "Primary focus",
     primary: true,
-    text: "Custom modules, integrations, and end-to-end business workflows—the focus of my current role.",
+    text: "Custom modules, integrations, and business workflows.",
   },
   {
     index: "02",
     name: "Process Analysis",
     category: "Business analysis",
-    text: "Mapping real business processes and translating them into clear, workable software.",
+    text: "Mapping business processes into workable software.",
   },
   {
     index: "03",
     name: "Python",
     category: "Core language",
-    text: "Backend development, automation, and the language behind most of my Odoo work.",
+    text: "Backend development and automation behind my Odoo work.",
   },
   {
     index: "04",
     name: "PostgreSQL",
     category: "Data storage",
-    text: "Relational data storage and queries for business applications and APIs.",
+    text: "Relational storage and queries for business apps and APIs.",
   },
   {
     index: "05",
     name: "TypeScript",
     category: "Typed JavaScript",
-    text: "Typed interfaces and application logic for maintainable full-stack products.",
+    text: "Typed interfaces and logic for full-stack products.",
   },
   {
     index: "06",
     name: "Next.js",
     category: "React framework",
-    text: "Full-stack React apps with server-side rendering and modern frontend tooling.",
+    text: "Full-stack React apps with server-side rendering.",
   },
   {
     index: "07",
     name: "ASP.NET",
     category: "Web framework",
-    text: "Robust server-side applications and APIs with C# and the .NET ecosystem.",
+    text: "Server-side applications and APIs with C# and .NET.",
   },
   {
     index: "08",
     name: "Scrum",
     category: "Agile delivery",
-    text: "Sprint planning, backlog refinement, and shipping iteratively as part of a team.",
+    text: "Sprint planning, refinement, and iterative delivery.",
   },
 ];
 
@@ -202,10 +202,10 @@ function Resume() {
                 <span className="cv-index">{skill.index}</span>
                 <span>
                   <span className="cv-skill-name">{skill.name}</span>
+                </span>
+                <span>
                   {skill.primary ? (
-                    <span className="cv-badge" style={{ marginLeft: 8 }}>
-                      Primary focus
-                    </span>
+                    <span className="cv-badge">Primary focus</span>
                   ) : (
                     <span className="cv-skill-cat">{skill.category}</span>
                   )}

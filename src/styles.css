@@ -323,8 +323,8 @@ button:focus-visible {
 
 .cv-skill {
   display: grid;
-  grid-template-columns: 28px 150px 1fr;
-  gap: 12px;
+  grid-template-columns: 26px 132px 116px 1fr;
+  gap: 14px;
   align-items: baseline;
   padding: 7px 0;
   border-bottom: 1px solid var(--cv-hairline);
@@ -341,7 +341,6 @@ button:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--cv-muted);
-  margin-top: 4px;
 }
 .cv-footer {
   margin-top: auto;
