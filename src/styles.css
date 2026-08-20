@@ -262,7 +262,7 @@ button:focus-visible {
   outline-offset: 2px;
 }
 
-.cv-section { margin-top: 16px; }
+.cv-section { margin-top: 14px; }
 .cv-label {
   font-size: 11px;
   font-weight: 500;
@@ -323,13 +323,14 @@ button:focus-visible {
 
 .cv-skill {
   display: grid;
-  grid-template-columns: 26px 132px 116px 1fr;
-  gap: 14px;
+  grid-template-columns: 24px 118px 104px 1fr;
+  gap: 12px;
   align-items: baseline;
   padding: 5px 0;
   border-bottom: 1px solid var(--cv-hairline);
 }
 .cv-skill:last-child { border-bottom: none; }
+.cv-skill .cv-body { font-size: 12px; }
 .cv-skill-name {
   font-size: 13px;
   font-weight: 600;
@@ -344,7 +345,7 @@ button:focus-visible {
 }
 .cv-footer {
   margin-top: auto;
-  padding-top: 18px;
+  padding-top: 12px;
   font-size: 10px;
   letter-spacing: 0.1em;
   color: var(--cv-muted);
