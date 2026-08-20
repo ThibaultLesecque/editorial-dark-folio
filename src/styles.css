@@ -323,7 +323,7 @@ button:focus-visible {
 
 .cv-skill {
   display: grid;
-  grid-template-columns: 24px 118px 104px 1fr;
+  grid-template-columns: 22px 112px 118px 1fr;
   gap: 12px;
   align-items: baseline;
   padding: 5px 0;
@@ -331,6 +331,8 @@ button:focus-visible {
 }
 .cv-skill:last-child { border-bottom: none; }
 .cv-skill .cv-body { font-size: 12px; }
+.cv-skill .cv-badge,
+.cv-skill .cv-skill-cat { white-space: nowrap; }
 .cv-skill-name {
   font-size: 13px;
   font-weight: 600;
