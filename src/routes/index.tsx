@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import headshot from "@/assets/headshot.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -98,22 +99,36 @@ function Resume() {
             <p className="cv-wordmark">THIBAULT LESECQUE</p>
           </div>
 
-          <h1 className="cv-name">Thibault Lesecque</h1>
-          <p className="cv-role">Odoo / Python / Full-stack product development</p>
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 24 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h1 className="cv-name">Thibault Lesecque</h1>
+              <p className="cv-role">Odoo / Python / Full-stack product development</p>
 
-          <address className="cv-meta" style={{ fontStyle: "normal" }}>
-            <a href="mailto:thibault.lesecque@outlook.com">thibault.lesecque@outlook.com</a>
-            <a
-              href="https://linkedin.com/in/thibault-lesecque"
-              target="_blank"
-              rel="noreferrer"
-            >
-              linkedin.com/in/thibault-lesecque
-            </a>
-            <a href="https://github.com/ThibaultLesecque" target="_blank" rel="noreferrer">
-              github.com/ThibaultLesecque
-            </a>
-          </address>
+              <address className="cv-meta" style={{ fontStyle: "normal" }}>
+                <a href="mailto:thibault.lesecque@outlook.com">
+                  thibault.lesecque@outlook.com
+                </a>
+                <a
+                  href="https://linkedin.com/in/thibault-lesecque"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  linkedin.com/in/thibault-lesecque
+                </a>
+                <a href="https://github.com/ThibaultLesecque" target="_blank" rel="noreferrer">
+                  github.com/ThibaultLesecque
+                </a>
+              </address>
+            </div>
+            <img
+              className="cv-portrait"
+              src={headshot.url}
+              alt="Portrait of Thibault Lesecque"
+              width={88}
+              height={88}
+            />
+          </div>
+
         </header>
 
         <section className="cv-section">
