@@ -381,3 +381,15 @@ button:focus-visible {
   .cv-dot { animation: none; }
   html, body { background: var(--cv-canvas); }
 }
+
+.cv-portrait {
+  width: 88px;
+  height: 88px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 1px solid var(--cv-hairline, rgba(245, 245, 245, 0.12));
+  filter: grayscale(100%) contrast(1.05);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
