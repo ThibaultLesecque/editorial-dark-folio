@@ -1,24 +1,223 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Thibault Lesecque — Odoo / Python Engineer Résumé" },
+      {
+        name: "description",
+        content:
+          "Résumé of Thibault Lesecque: Odoo and Python development, custom modules, integrations, and full-stack products with TypeScript and Next.js.",
+      },
+      { property: "og:title", content: "Thibault Lesecque — Odoo / Python Engineer Résumé" },
+      {
+        property: "og:description",
+        content:
+          "Single-page résumé: Odoo development, Python, PostgreSQL, TypeScript and Next.js.",
+      },
+      { property: "og:type", content: "profile" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Resume,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const experienceTags = ["Python", "Odoo ORM", "QWeb", "PostgreSQL", "APIs"];
+const educationTags = ["SQL", "Vue.js", "ASP.NET", "Cybersecurity", "Scrum", "ITIL"];
+
+const skills = [
+  {
+    index: "01",
+    name: "Odoo",
+    category: "Primary focus",
+    primary: true,
+    text: "Custom modules, integrations, and end-to-end business workflows—the focus of my current role.",
+  },
+  {
+    index: "02",
+    name: "Process Analysis",
+    category: "Business analysis",
+    text: "Mapping real business processes and translating them into clear, workable software.",
+  },
+  {
+    index: "03",
+    name: "Python",
+    category: "Core language",
+    text: "Backend development, automation, and the language behind most of my Odoo work.",
+  },
+  {
+    index: "04",
+    name: "PostgreSQL",
+    category: "Data storage",
+    text: "Relational data storage and queries for business applications and APIs.",
+  },
+  {
+    index: "05",
+    name: "TypeScript",
+    category: "Typed JavaScript",
+    text: "Typed interfaces and application logic for maintainable full-stack products.",
+  },
+  {
+    index: "06",
+    name: "Next.js",
+    category: "React framework",
+    text: "Full-stack React apps with server-side rendering and modern frontend tooling.",
+  },
+  {
+    index: "07",
+    name: "ASP.NET",
+    category: "Web framework",
+    text: "Robust server-side applications and APIs with C# and the .NET ecosystem.",
+  },
+  {
+    index: "08",
+    name: "Scrum",
+    category: "Agile delivery",
+    text: "Sprint planning, backlog refinement, and shipping iteratively as part of a team.",
+  },
+];
+
+function Resume() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="cv-screen">
+      <button
+        type="button"
+        className="cv-print-btn cv-no-print"
+        onClick={() => window.print()}
+      >
+        Print / Save PDF
+      </button>
+
+      <main className="cv-page">
+        <header>
+          <div style={{ display: "flex", justifyContent: "space-between", gap: 16 }}>
+            <p className="cv-status">
+              <span className="cv-dot" aria-hidden="true" />
+              System initialized
+            </p>
+            <p className="cv-wordmark">THIBAULT LESECQUE</p>
+          </div>
+
+          <h1 className="cv-name">Thibault Lesecque</h1>
+          <p className="cv-role">Odoo / Python / Full-stack product development</p>
+
+          <address className="cv-meta" style={{ fontStyle: "normal" }}>
+            <a href="mailto:thibault.lesecque@outlook.com">thibault.lesecque@outlook.com</a>
+            <a
+              href="https://linkedin.com/in/thibault-lesecque"
+              target="_blank"
+              rel="noreferrer"
+            >
+              linkedin.com/in/thibault-lesecque
+            </a>
+            <a href="https://github.com/ThibaultLesecque" target="_blank" rel="noreferrer">
+              github.com/ThibaultLesecque
+            </a>
+          </address>
+        </header>
+
+        <section className="cv-section">
+          <h2 className="cv-label">01 / Profile</h2>
+          <p className="cv-body" style={{ marginTop: 16, maxWidth: "58ch" }}>
+            I build practical software for real business needs. Professionally I focus on Odoo
+            and Python — custom modules, integrations, and workflows that fit how companies
+            actually operate. Independently I build full-stack products with TypeScript and
+            Next.js.
+          </p>
+          <p className="cv-body" style={{ marginTop: 12 }}>
+            Open to junior engineering opportunities, Odoo/Python work, and practical web
+            products.
+          </p>
+        </section>
+
+        <section className="cv-section">
+          <h2 className="cv-label">02 / Experience</h2>
+          <article className="cv-row cv-row--primary">
+            <div style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
+              <span className="cv-index">01</span>
+              <div style={{ flex: 1 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 10,
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <h3 className="cv-entry-title">Odoo Development</h3>
+                  <span className="cv-badge">Current</span>
+                </div>
+                <p className="cv-skill-cat">Software Engineer</p>
+                <p className="cv-body" style={{ marginTop: 10, maxWidth: "62ch" }}>
+                  I build custom Odoo modules, integrations, and end-to-end business workflows,
+                  tailoring systems to how a company operates—from sales and inventory to
+                  accounting and automation—so teams work with software that fits their
+                  process.
+                </p>
+                <ul className="cv-tags" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {experienceTags.map((tag) => (
+                    <li key={tag} className="cv-tag">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section className="cv-section">
+          <h2 className="cv-label">03 / Education</h2>
+          <article className="cv-row">
+            <div style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
+              <span className="cv-index">02</span>
+              <div style={{ flex: 1 }}>
+                <h3 className="cv-entry-title">Programming Degree</h3>
+                <p className="cv-skill-cat">Graduate Programme in Programming</p>
+                <p className="cv-body" style={{ marginTop: 10, maxWidth: "62ch" }}>
+                  A structured foundation in software development—databases, web frameworks,
+                  security, and IT service management—and the fundamentals everything else
+                  builds on.
+                </p>
+                <ul className="cv-tags" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                  {educationTags.map((tag) => (
+                    <li key={tag} className="cv-tag">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section className="cv-section">
+          <h2 className="cv-label">04 / Skills</h2>
+          <p className="cv-body" style={{ marginTop: 12 }}>
+            Tools and practices I use to build useful, dependable software.
+          </p>
+          <ul style={{ listStyle: "none", padding: 0, margin: "8px 0 0" }}>
+            {skills.map((skill) => (
+              <li key={skill.index} className="cv-skill">
+                <span className="cv-index">{skill.index}</span>
+                <span>
+                  <span className="cv-skill-name">{skill.name}</span>
+                  {skill.primary ? (
+                    <span className="cv-badge" style={{ marginLeft: 8 }}>
+                      Primary focus
+                    </span>
+                  ) : (
+                    <span className="cv-skill-cat">{skill.category}</span>
+                  )}
+                </span>
+                <span className="cv-body">{skill.text}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <footer className="cv-footer">© 2026 Thibault Lesecque</footer>
+      </main>
     </div>
   );
 }
