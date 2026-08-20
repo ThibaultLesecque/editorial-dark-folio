@@ -326,7 +326,7 @@ button:focus-visible {
   grid-template-columns: 22px 112px 118px 1fr;
   gap: 12px;
   align-items: baseline;
-  padding: 5px 0;
+  padding: 4px 0;
   border-bottom: 1px solid var(--cv-hairline);
 }
 .cv-skill:last-child { border-bottom: none; }
